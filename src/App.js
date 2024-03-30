@@ -13,13 +13,12 @@ function App (){
 
 
     return (
-        <>
+        <React.Fragment>
       <Header/>
         <div className="App">
             <button onClick={onToggleButton}>toggle</button>
         </div>
-
-        </>
+        </React.Fragment>
     );
 }
 

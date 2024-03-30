@@ -15,9 +15,11 @@ export function useTelegram() {
         }
     }
 
+    const user = tg.initDataUnsafe?.user.username;
+
     return {
         onClose,
         tg,
-        user: tg.initDataUnsafe?.user.username
+        user
     }
 }

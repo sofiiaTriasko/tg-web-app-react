@@ -13,7 +13,7 @@ export function useTelegram() {
         }
     }
 
-    const user = tg.initDataUnsafe ? tg.initDataUnsafe.user.username : undefined;
+    const user = tg.initDataUnsafe.user?.username;
 
     return {
         onClose,

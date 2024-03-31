@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import ProductItem from "../ProductItem/ProductItem";
-import productItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 
 
@@ -20,11 +19,13 @@ const ProductList = () => {
 
     const getTotalPrice= (items) => {
         return items.reduce((acc, item) => {
-            return acc+= item.price
+            // eslint-disable-next-line
+            return acc += item.price
         }, 0)
     }
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
+        // eslint-disable-next-line
         let newItems = [];
          if(alreadyAdded) {
              newItems = addedItems.filter(item => item.id !== product.id);

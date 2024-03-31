@@ -7,12 +7,12 @@ import ProductList from "./components/ProductList/ProductList";
 import Form from "./components/Form/Form"
 
 function App (){
-    const { onToggleButton, tg} = useTelegram()
+    const { tg } = useTelegram()
     useEffect(() => {
         return () => {
             tg.ready()
         };
-    }, []);
+    }, [tg]);
 
 
     return (

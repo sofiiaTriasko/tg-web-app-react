@@ -11,13 +11,13 @@ const Form = () => {
         tg.MainButton.setParams({
             text: 'Відправити дані'
         })
-    }, [])
+    }, [tg.MainButton])
 
     useEffect(() => {
         if(!mail || !region || !city) {
             tg.MainButton.hide()
         }
-    }, [city, mail, region])
+    }, [city, mail, region, tg.MainButton])
 
     const onChangeRegion = (e) => {
         setRegion(e.target.value);

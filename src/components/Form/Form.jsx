@@ -7,6 +7,26 @@ const Form = () => {
     const [mail, setMail] = useState('');
     const { tg } = useTelegram();
 
+    const onSendData = useCallback(
+        () => {
+            const data = {
+                region,
+                city,
+                mail
+            }
+            tg.sendData(JSON.stringify(data))
+        },
+        [],
+    );
+
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+            return () => {
+           tg.offEvent('mainButtonClicked', onSendData)
+            }
+    }, [])
+
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'Відправити дані'

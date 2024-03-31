@@ -16,7 +16,8 @@ const Form = () => {
             }
             tg.sendData(JSON.stringify(data))
         },
-        [city,region,mail, tg],
+        // eslint-disable-next-line
+        [city,region,mail],
     );
 
 
@@ -25,19 +26,22 @@ const Form = () => {
             return () => {
            tg.offEvent('mainButtonClicked', onSendData)
             }
-    }, [onSendData, tg])
+        // eslint-disable-next-line
+    }, [])
 
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'Відправити дані'
         })
-    }, [tg.MainButton])
+        // eslint-disable-next-line
+    }, [])
 
     useEffect(() => {
         if(!mail || !region || !city) {
             tg.MainButton.hide()
         }
-    }, [city, mail, region, tg.MainButton])
+        // eslint-disable-next-line
+    }, [city, mail, region])
 
     const onChangeRegion = (e) => {
         setRegion(e.target.value);
